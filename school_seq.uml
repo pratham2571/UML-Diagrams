@@ -1,0 +1,89 @@
+@startuml 
+
+actor Admin as A
+participant "Student" as S 
+participant "Teacher" as T
+participant "Class" as C
+
+
+A->S: Add/Modify \nStudent
+activate A
+activate S
+deactivate S
+
+A->C:Add/Modify Class
+|||
+C->S:Class assigned\n to Student
+C ++
+S ++
+S-->C:Class asigned\n confirmed
+S --
+C --
+|||
+A->S:Assign Course
+S ++
+S-->A:Course Assigned
+S --
+|||
+A->S:Assign Division
+S ++
+S-->A:Division Assigned
+S --
+|||
+A->T:Add/Modify\n Teacher
+T ++
+T->C:Teacher assign \nto class
+T --
+
+
+A->T:Assign subject
+
+
+T ++
+T-->A:Subject assigned
+T -- 
+A --
+
+T->S:Takes lectures
+S ++
+S --
+
+
+T->S:Take attendence
+T ++
+S ++
+
+S->T:Give attendence
+S --
+T --
+
+
+A->T:Provide Exam Schedule
+A ++
+A --
+T ++
+T --
+T->S:Provide Exam
+T ++
+S ++
+
+S->T:Submit Exam
+
+S --
+T --
+
+|||
+
+
+T->S:Prepare report card and Give
+T ++
+S ++
+T --
+S --
+ 
+
+
+|||
+|||
+|||
+@enduml
