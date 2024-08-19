@@ -1,0 +1,41 @@
+@startuml
+
+
+
+actor Admin as A
+actor Teacher as T
+actor Student as S
+
+usecase "Add/Modify Student" as UC1
+usecase "Assign Teacher to Student" as UC2
+usecase "Add/Modify Class" as UC3
+usecase "Assign Course to Student" as UC4
+usecase "Assign Subject to Teacher" as UC5
+usecase "Assign Division to Student" as UC6
+usecase "Provide Exam to Teacher" as UC7
+
+usecase "Take Lectures" as UC8
+usecase "Mark Attendance" as UC9
+usecase "Provide Exam to Student" as UC10
+usecase "Prepare Report Card" as UC11
+
+usecase "Attend Exams" as UC12
+usecase "Submit Exams" as UC13
+
+A --> UC1
+A --> UC2
+A --> UC3
+A --> UC4
+A --> UC5
+A --> UC6
+A --> UC7
+
+T --> UC8
+T --> UC9
+T --> UC10
+T --> UC11
+
+S --> UC12
+S --> UC13
+
+@enduml

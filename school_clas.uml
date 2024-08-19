@@ -1,0 +1,87 @@
+@startuml
+
+' Define the classes
+class Admin {
+    +addStudent()
+    +modifyStudent()
+    +assignTeacher(studentId: String, teacherId: String)
+    +addClass(className: String)
+    +modifyClass(classId: String)
+    +assignCourse(studentId: String, courseId: String)
+    +assignSubject(teacherId: String, subjectId: String)
+    +assignDivision(studentId: String, division: String)
+    +provideExam(teacherId: String, examId: String)
+}
+
+class Teacher {
+    +takeLecture(classId: String)
+    +markAttendance(classId: String, studentId: String)
+    +prepareExam(examId: String)
+    +provideExam(studentId: String, examId: String)
+    +prepareReportCard(studentId: String)
+}
+
+class Student {
+    +attendExam(examId: String)
+    +submitExam(examId: String)
+}
+
+class Class {
+    +className: String
+    +classId: String
+    +students: List<Student>
+    +teachers: List<Teacher>
+    +addStudent(student: Student)
+    +assignTeacher(teacher: Teacher)
+}
+
+class Course {
+    +courseId: String
+    +courseName: String
+    +assignToStudent(student: Student)
+}
+
+class Subject {
+    +subjectId: String
+    +subjectName: String
+    +assignToTeacher(teacher: Teacher)
+}
+
+class Exam {
+    +examId: String
+    +examName: String
+    +assignToTeacher(teacher: Teacher)
+    +assignToStudent(student: Student)
+}
+
+class Division {
+    +divisionId: String
+    +divisionName: String
+    +assignToStudent(student: Student)
+}
+
+' Relationships
+Admin --> Student : manages
+Admin --> Teacher : assigns
+Admin --> Class : manages
+Admin --> Course : assigns
+Admin --> Subject : assigns
+Admin --> Division : assigns
+Admin --> Exam : provides
+
+Teacher --> Class : teaches
+Teacher --> Exam : prepares
+Teacher --> Student : assesses
+
+Student --> Exam : takes
+
+Class --> Student : contains
+Class --> Teacher : has
+
+Course --> Student : assigned
+Subject --> Teacher : assigned
+Exam --> Teacher : assigned
+Exam --> Student : attended
+Division --> Student : assigned
+
+@enduml
