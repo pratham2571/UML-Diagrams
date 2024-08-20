@@ -1,0 +1,23 @@
+@startuml
+:Admin: as admin
+:Teacher: as teacher
+:Student: as student
+
+admin --> (Add/Modify Student)
+admin --> (Add/Modify Class)
+admin --> (Assign Course to Student)
+admin --> (Assign Division to Student)
+admin --> (Add/Modiy Teacher)
+admin --> (Assign Teacher to Student)
+admin --> (Assign Subject to Teacher)
+admin --> (Provide Exam to Teacher)
+
+teacher --> (Take Lecture)
+teacher --> (Take Attendance)
+teacher --> (Provide Exam to Students)
+teacher --> (Prepare Report Card)
+
+student --> (Attend Exam)
+student --> (Submit Exam)
+
+@enduml
