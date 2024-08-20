@@ -1,0 +1,46 @@
+@startuml
+|Admin|
+
+:Add/Modify Student;
+if(Class is Present ?)then  (no)
+    :Add Class;
+
+    :Add/Modify class;
+else (yes)
+    endif
+:Assign class to student;
+:Assign course to student;
+:Assign Division to student;
+:Add Teacher;
+:Assign teacher to class;
+:Assign subject to teacher;
+|Teacher|
+
+if (Take Lectures of Students?) then (no)
+  :Conduct Lecture;
+else (yes)
+endif
+
+
+|Student|
+:Attend lectures;
+
+|Teacher|
+
+:Mark Attendance;
+:provide Exam to students;
+
+|Student|
+
+:Attend Exam ;
+
+if (Submit Exam?) then (no)
+  :Complete Exam;
+  :Submit Exam;
+  else (yes)
+  endif
+|Teacher|
+:Prepare report card;
+
+
+@enduml
