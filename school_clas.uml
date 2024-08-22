@@ -1,5 +1,7 @@
 @startuml
 
+title " School class diagram"
+
 
 class Admin {
     +addStudent()
