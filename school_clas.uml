@@ -1,7 +1,7 @@
 @startuml
 
 title " School class diagram"
-
+'This is a class diagram
 
 class Admin {
     +addStudent()
@@ -72,7 +72,7 @@ Student --> Exam : takes
 
 Class --> Student : contains
 Class --> Teacher : has
-
+'welcome to plant uml ac
 Course --> Student : assigned
 Subject --> Teacher : assigned
 Exam --> Teacher : assigned
